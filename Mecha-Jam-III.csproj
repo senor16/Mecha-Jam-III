@@ -46,6 +46,7 @@
     <Compile Include="Lib\Button.cs" />
     <Compile Include="Lib\GameState.cs" />
     <Compile Include="Lib\IActor.cs" />
+    <Compile Include="Lib\Paralax.cs" />
     <Compile Include="Lib\Scene.cs" />
     <Compile Include="Lib\Sprite.cs" />
     <Compile Include="Lib\Util.cs" />

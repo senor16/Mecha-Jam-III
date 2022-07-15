@@ -72,7 +72,7 @@ namespace Mecha_Jam_III
             if ((newKBState.IsKeyDown(Keys.Enter) == true &&
                 oldKBState.IsKeyDown(Keys.Enter) == false))
             {
-                //mainGame.gameState.ChangeScene(GameState.SceneType.Gameplay);
+                mainGame.gameState.ChangeScene(GameState.SceneType.Gameplay);
             }
 
             oldKBState = newKBState;

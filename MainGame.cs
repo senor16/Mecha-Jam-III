@@ -12,10 +12,15 @@ namespace Mecha_Jam_III
         GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
         public GameState gameState;
+        int TargetWidth = 800;
+        int TargetHeight = 450;
 
         public MainGame()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferWidth = TargetWidth;
+            graphics.PreferredBackBufferHeight = TargetHeight;
+            graphics.IsFullScreen = false;
             Content.RootDirectory = "Content";
             gameState = new GameState(this);
         }
@@ -29,7 +34,7 @@ namespace Mecha_Jam_III
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            gameState.ChangeScene(GameState.SceneType.Menu);
+            gameState.ChangeScene(GameState.SceneType.Gameplay);
             IsMouseVisible = true;
             base.Initialize();
         }

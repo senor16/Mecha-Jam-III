@@ -12,7 +12,7 @@ namespace Mecha_Jam_III
     {
         private Vector2 position;
         private Texture2D image;
-        private float speed;
+        public float speed;
         public Vector2 Position
         {
             get
@@ -35,8 +35,8 @@ namespace Mecha_Jam_III
         }
         public void Update()
         {
-            position.X += speed;
-            if (position.X <= 0 - image.Width)
+            position.X -= speed;
+            if (position.X < 0 -image.Width)
                 position.X = 0;
         }
     }
