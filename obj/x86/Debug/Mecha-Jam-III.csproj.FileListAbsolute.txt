@@ -21,3 +21,12 @@ C:\Users\Sesso\Dropbox\Projects\Monogame\Mecha-Jam-III\Mecha-Jam-III\bin\Windows
 C:\Users\Sesso\Dropbox\Projects\Monogame\Mecha-Jam-III\Mecha-Jam-III\obj\x86\Debug\Mecha-Jam-III.csprojResolveAssemblyReference.cache
 C:\Users\Sesso\Dropbox\Projects\Monogame\Mecha-Jam-III\Mecha-Jam-III\obj\x86\Debug\Mecha-Jam-III.exe
 C:\Users\Sesso\Dropbox\Projects\Monogame\Mecha-Jam-III\Mecha-Jam-III\obj\x86\Debug\Mecha-Jam-III.pdb
+C:\Users\Sesso\Dropbox\Projects\Monogame\Mecha-Jam-III\Mecha-Jam-III\bin\Windows\x86\Debug\Content\button.xnb
+C:\Users\Sesso\Dropbox\Projects\Monogame\Mecha-Jam-III\Mecha-Jam-III\bin\Windows\x86\Debug\Content\cool.wma
+C:\Users\Sesso\Dropbox\Projects\Monogame\Mecha-Jam-III\Mecha-Jam-III\bin\Windows\x86\Debug\Content\cool.xnb
+C:\Users\Sesso\Dropbox\Projects\Monogame\Mecha-Jam-III\Mecha-Jam-III\bin\Windows\x86\Debug\Content\explode.xnb
+C:\Users\Sesso\Dropbox\Projects\Monogame\Mecha-Jam-III\Mecha-Jam-III\bin\Windows\x86\Debug\Content\mainfont.xnb
+C:\Users\Sesso\Dropbox\Projects\Monogame\Mecha-Jam-III\Mecha-Jam-III\bin\Windows\x86\Debug\Content\meteor.xnb
+C:\Users\Sesso\Dropbox\Projects\Monogame\Mecha-Jam-III\Mecha-Jam-III\bin\Windows\x86\Debug\Content\ship.xnb
+C:\Users\Sesso\Dropbox\Projects\Monogame\Mecha-Jam-III\Mecha-Jam-III\bin\Windows\x86\Debug\Content\techno.wma
+C:\Users\Sesso\Dropbox\Projects\Monogame\Mecha-Jam-III\Mecha-Jam-III\bin\Windows\x86\Debug\Content\techno.xnb

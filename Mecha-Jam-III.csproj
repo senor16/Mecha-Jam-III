@@ -41,9 +41,20 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Game1.cs" />
+    <Compile Include="Lib\AssetManager.cs" />
+    <Compile Include="Lib\Background.cs" />
+    <Compile Include="Lib\Button.cs" />
+    <Compile Include="Lib\GameState.cs" />
+    <Compile Include="Lib\IActor.cs" />
+    <Compile Include="Lib\Scene.cs" />
+    <Compile Include="Lib\Sprite.cs" />
+    <Compile Include="Lib\Util.cs" />
+    <Compile Include="MainGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SceneGameover.cs" />
+    <Compile Include="SceneGameplay.cs" />
+    <Compile Include="SceneMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
