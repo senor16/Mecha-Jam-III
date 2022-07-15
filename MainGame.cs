@@ -9,7 +9,7 @@ namespace Mecha_Jam_III
     /// </summary>
     public class MainGame : Game
     {
-        GraphicsDeviceManager graphics;
+        public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
         public GameState gameState;
         int TargetWidth = 800;
