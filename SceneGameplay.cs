@@ -5,15 +5,47 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using System.Diagnostics;
 
 namespace Mecha_Jam_III
 {
+    
     class Hero : Sprite
     {
-
+        const int GROUND = 430;
+        const int JUMP_HEIGHT = 100;
+        public bool isJumping;
         public Hero(Texture2D pTexture) : base(pTexture)
         {
 
+            isJumping = false;
+        }
+
+        public void Jump()
+        {
+            isJumping = true;
+            vy = -3;
+        }
+
+        public override void Update(GameTime pGameTime)
+        {
+            float pos = Position.Y + currentAnimation.frames[0].Height;
+            
+            if (GROUND - JUMP_HEIGHT > pos)
+            {
+             
+                vy += 1;
+
+            }
+
+            if (pos > GROUND)
+            {
+                Position = new Vector2(Position.X, GROUND - currentAnimation.frames[0].Height);
+                isJumping = false;
+                vy = 0;
+            }
+            base.Update(pGameTime);
         }
 
         public override void TouchedBy(IActor pBy)
@@ -24,12 +56,15 @@ namespace Mecha_Jam_III
 
     class SceneGameplay : Scene
     {
+        const int GROUND = 430;
         private Paralax paralax;
         private Hero myHero;
+        private KeyboardState OldKBState;
+        private KeyboardState NewKBState;
         public SceneGameplay(MainGame pGame) : base(pGame)
         {
             paralax = new Paralax(mainGame);
-
+            OldKBState = Keyboard.GetState();
         }
 
 
@@ -45,8 +80,10 @@ namespace Mecha_Jam_III
             paralax.AddBackground(new Background(mainGame.Content.Load<Texture2D>("road"), 6));
 
             // Hero Creation
-            myHero = new Hero(mainGame.Content.Load<Texture2D>("Sit_010"));
-            myHero.Position = new Vector2(100, mainGame.graphics.PreferredBackBufferHeight - myHero.Texture.Height - 20);
+            myHero = new Hero(mainGame.Content.Load<Texture2D>("Run_000"));
+            myHero.Position = new Vector2(100, GROUND - myHero.Texture.Height);
+            Debug.WriteLine("Hero position x: "+ myHero.Position.X + ", y : "+  myHero.Position.Y);
+            
             listActors.Add(myHero);
             
             /// Adding animation
@@ -69,25 +106,15 @@ namespace Mecha_Jam_III
 
             // Jump
             List<Texture2D> jump = new List<Texture2D>();
-            for (int i = 0; i < 13; i++)
+            for (int i = 0; i < 8; i++)
             {
                 if (i <= 9)
                     jump.Add(mainGame.Content.Load<Texture2D>("Jump_00" + i));
                 else
                     jump.Add(mainGame.Content.Load<Texture2D>("Jump_0" + i));
             }
-            myHero.AddAnimation(new Animation(jump, Animation.AnimationType.Jump, 1f/6f,false));
-
-            // Sit
-            List<Texture2D> sit = new List<Texture2D>();
-            for (int i = 0; i < 11; i++)
-            {
-                if (i <= 9)
-                    sit.Add(mainGame.Content.Load<Texture2D>("Sit_00" + i));
-                else
-                    jump.Add(mainGame.Content.Load<Texture2D>("Sit_0" + i));
-            }
-            myHero.AddAnimation(new Animation(sit, Animation.AnimationType.Sit, 1f / 6f,false));
+            myHero.AddAnimation(new Animation(jump, Animation.AnimationType.Jump, 1f/4f,false));
+            
 
 
             // Death
@@ -103,8 +130,8 @@ namespace Mecha_Jam_III
 
 
             // Play an animation
-            myHero.PlayAnimation(Animation.AnimationType.Run);
-
+            myHero.PlayAnimation(Animation.AnimationType.ToRun);
+            
             
             base.Load();
         }
@@ -116,7 +143,27 @@ namespace Mecha_Jam_III
 
         public override void Update(GameTime gameTime)
         {
+            // Paralax
             paralax.Update();
+
+            // Keyboard input
+            NewKBState = Keyboard.GetState();
+            // Jump
+            if (!OldKBState.IsKeyDown(Keys.Up) && NewKBState.IsKeyDown(Keys.Up) && !myHero.isJumping)
+            {
+                myHero.PlayAnimation(Animation.AnimationType.Jump);
+                myHero.Jump();                
+            }
+
+            
+
+
+            if (myHero.currentAnimation.ended)
+            {
+                myHero.PlayAnimation(Animation.AnimationType.Run);
+                
+            }
+            Debug.WriteLine("Hero vy: " + myHero.vy);
             base.Update(gameTime);
         }
 

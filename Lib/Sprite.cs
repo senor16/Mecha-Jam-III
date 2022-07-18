@@ -20,7 +20,7 @@ namespace Mecha_Jam_III
         public float vy;
         public bool ToRemove { get; set; }
         public List<Animation> lstAnimation;
-        Animation currentAnimation = null;
+        public Animation currentAnimation = null;
 
 
         // Sprite
@@ -50,6 +50,7 @@ namespace Mecha_Jam_III
                 if (anim.type.Equals(pType))
                 {
                     currentAnimation = anim;
+                    currentAnimation.ended = false;
                     currentAnimation.currentFrame = 0;
                     break;                                     
                 }
@@ -65,8 +66,7 @@ namespace Mecha_Jam_III
         {
             if (currentAnimation != null )
             {
-                pSpriteBatch.Draw(currentAnimation.frames[(int)currentAnimation.currentFrame], Position, Color.White);
-                Debug.WriteLine("Current frame : " +currentAnimation.currentFrame);
+                pSpriteBatch.Draw(currentAnimation.frames[(int)currentAnimation.currentFrame], Position, Color.White);                
             }
             else
             {

@@ -16,7 +16,6 @@ namespace Mecha_Jam_III
             ToRun,
             Run,
             Jump,
-            Sit,
             Death
         }
         public List<Texture2D> frames;
