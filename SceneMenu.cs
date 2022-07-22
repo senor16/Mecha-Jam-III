@@ -16,6 +16,8 @@ namespace Mecha_Jam_III
         KeyboardState oldKBState;        
         private Button MyButton;
         private Song music;
+        private Texture2D backgrouond;
+
 
         public SceneMenu(MainGame pGame) : base(pGame)
         {
@@ -28,9 +30,7 @@ namespace Mecha_Jam_III
         }
 
         public override void Load()
-        {
-            Debug.WriteLine("SceneMenu.Load");
-
+        {            
             music = mainGame.Content.Load<Song>("cool");
             MediaPlayer.Play(music);
             MediaPlayer.IsRepeating = true;
@@ -47,14 +47,14 @@ namespace Mecha_Jam_III
             listActors.Add(MyButton);
 
             oldKBState = Keyboard.GetState();
-            
+            backgrouond = mainGame.Content.Load<Texture2D>("sky");
 
             base.Load();
         }
 
         public override void UnLoad()
         {
-            Debug.WriteLine("SceneMenu.Unload");
+            
             MediaPlayer.Stop();
             base.UnLoad();
         }
@@ -85,7 +85,7 @@ namespace Mecha_Jam_III
         {
             mainGame.spriteBatch.DrawString(AssetManager.MainFont,
                 "MechaJump", new Vector2(200, 100), Color.White);
-
+            mainGame.spriteBatch.Draw(backgrouond, Vector2.Zero, Color.White);
             base.Draw(gameTime);
         }
     }

@@ -9,12 +9,13 @@ namespace Mecha_Jam_III
     /// </summary>
     public class MainGame : Game
     {
+        public const int GROUND = 430;
+        public const int JUMP_HEIGHT = 100;
         public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
         public GameState gameState;
-        int TargetWidth = 800;
-        int TargetHeight = 450;
-
+        public int TargetWidth = 800;
+        public int TargetHeight = 450;
         public MainGame()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -34,7 +35,7 @@ namespace Mecha_Jam_III
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            gameState.ChangeScene(GameState.SceneType.Gameplay);
+            gameState.ChangeScene(GameState.SceneType.Menu);
             IsMouseVisible = true;
             base.Initialize();
         }
@@ -47,7 +48,7 @@ namespace Mecha_Jam_III
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            
             // TODO: use this.Content to load your game content here
             AssetManager.Load(Content);
         }

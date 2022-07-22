@@ -33,14 +33,38 @@ namespace Mecha_Jam_III
         public override void Update(GameTime gameTime)
         {
             // My code here
-
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+            {
+                mainGame.gameState.ChangeScene(GameState.SceneType.Menu);
+            }
             base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
+
             // My code here
-            mainGame.spriteBatch.DrawString(AssetManager.MainFont, "GAME OVER!", new Vector2(1, 1), Color.White);
+            float ypos = 30;
+            float xpos = (mainGame.TargetWidth - AssetManager.MainFont.MeasureString("GAME OVER").X) / 2;
+
+            mainGame.spriteBatch.DrawString(AssetManager.MainFont, "GAME OVER!", new Vector2(xpos, ypos), Color.Wheat);
+
+            ypos +=70+ AssetManager.MainFont.MeasureString("GAME OVER!").Y;
+            xpos = (mainGame.TargetWidth - AssetManager.MainFont.MeasureString("THANKS FOR PLAYING").X) / 2;
+            mainGame.spriteBatch.DrawString(AssetManager.MainFont, "THANKS FOR PLAYING", new Vector2(xpos, ypos),Color.Wheat);
+
+            ypos += AssetManager.MainFont.MeasureString("THANKS FOR PLAYING").Y;
+            xpos = (mainGame.TargetWidth - AssetManager.MainFont.MeasureString("BY SESSO KOSGA").X) / 2;
+            mainGame.spriteBatch.DrawString(AssetManager.MainFont, "BY SESSO KOSGA", new Vector2(xpos, ypos), Color.Wheat);
+
+            ypos += AssetManager.MainFont.MeasureString("BY SESSO KOSGA").Y;
+            xpos = (mainGame.TargetWidth - AssetManager.MainFont.MeasureString("kosgasesso@gmail.com").X) / 2;
+            mainGame.spriteBatch.DrawString(AssetManager.MainFont, "kosgasesso@gmail.com", new Vector2(xpos, ypos), Color.Wheat);
+
+            ypos += AssetManager.MainFont.MeasureString("kosgasesso@gmail.com").Y+120;
+            xpos = (mainGame.TargetWidth - AssetManager.MainFont.MeasureString("PRESS `ENTER` TO HEAD BACK TO THE MAIN SCREEN").X) / 2;
+            mainGame.spriteBatch.DrawString(AssetManager.MainFont, "PRESS `ENTER` TO HEAD BACK TO THE MAIN SCREEN", new Vector2(xpos, ypos), Color.Wheat);
+
 
             base.Draw(gameTime);
         }
